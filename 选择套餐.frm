@@ -128,7 +128,7 @@ if (v) {
 <widgetValue>
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
-<![CDATA[=SQL("JDBC3","select id,pick_plan_id from wbhwn5hc79.order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,2,1)]]></Attributes>
+<![CDATA[=SQL("JDBC3","select id,pick_plan_id from dish_order.order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,2,1)]]></Attributes>
 </O>
 </widgetValue>
 <MobileScanCodeAttr scanCode="true" textInputMode="0"/>
@@ -149,7 +149,7 @@ if (v) {
 <widgetValue>
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
-<![CDATA[=SQL("JDBC3","select id,pick_plan_id from wbhwn5hc79.order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,1,1)]]></Attributes>
+<![CDATA[=SQL("JDBC3","select id,pick_plan_id from dish_order.order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,1,1)]]></Attributes>
 </O>
 </widgetValue>
 <MobileScanCodeAttr scanCode="true" textInputMode="0"/>
@@ -190,7 +190,6 @@ if (v) {
 <![CDATA[]]></O>
 </widgetValue>
 <BGAttr columnsInRow="3"/>
-<NotAdaptive/>
 <MaxRowsMobileAttr maxShowRows="5"/>
 </InnerWidget>
 <BoundsAttr x="406" y="8" width="283" height="42"/>

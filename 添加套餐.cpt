@@ -51,9 +51,9 @@
 <ColumnPrivilegeControl/>
 <RowPrivilegeControl/>
 <RowHeight defaultValue="723900">
-<![CDATA[723900,3124200,1409700,1409700,723900]]></RowHeight>
+<![CDATA[723900,3124200,1409700,1409700,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
 <ColumnWidth defaultValue="2743200">
-<![CDATA[2743200,2743200,2743200,5943600,4953000,2743200,2743200,2743200]]></ColumnWidth>
+<![CDATA[2743200,2743200,2743200,5943600,4953000,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
 <CellElementList>
 <C c="0" r="0" s="0">
 <O>
@@ -207,7 +207,6 @@
 </Dictionary>
 <widgetValue/>
 <BGAttr columnsInRow="2"/>
-<NotAdaptive/>
 <MaxRowsMobileAttr maxShowRows="5"/>
 <RAAttr isArray="false"/>
 </Widget>
@@ -334,6 +333,7 @@ this.setEnable(false);]]></Content>
 <ColumnConfig name="inclusion" isKey="false" skipUnmodified="false">
 <ColumnRow column="3" row="1"/>
 </ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
 <UpdateAttr updateStatus="true"/>
 </DMLConfig>
 <JavaScript class="com.fr.js.JavaScriptImpl">
@@ -475,7 +475,7 @@ _g().getWidgetByName("submitBtn").setEnable(true)]]></Content>
 <StrategyConfig dsName="ds1" enabled="false" useGlobal="true" shouldMonitor="true" shouldEvolve="false" scheduleBySchema="false" timeToLive="1500000" timeToIdle="86400000" updateInterval="1500000" terminalTime="" updateSchema="0 0 8 * * ? *" activeInitiation="false"/>
 </StrategyConfigs>
 </StrategyConfigsAttr>
-<TemplateCloudInfoAttrMark class="com.fr.plugin.cloud.analytics.attr.TemplateInfoAttrMark" pluginID="com.fr.plugin.cloud.analytics.v11" plugin-version="3.2.0.20220104">
+<TemplateCloudInfoAttrMark class="com.fr.plugin.cloud.analytics.attr.TemplateInfoAttrMark" pluginID="com.fr.plugin.cloud.analytics.v11" plugin-version="3.2.1.20220120">
 <TemplateCloudInfoAttrMark createTime="1641962038472"/>
 </TemplateCloudInfoAttrMark>
 <TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
