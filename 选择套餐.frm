@@ -535,7 +535,7 @@ var num = FR.remoteEvaluate('=sql("JDBC3","SELECT remain_number from plan where 
 if (num > 0) {
 	return true;
 } else {
-	Msg.alert("手慢了", "套餐已经被抢完了", () => location.reload(true));
+	FR.Msg.alert("手慢了", "套餐已经被抢完了", () => location.reload(true));
 	return false;
 }]]></Content>
 </JavaScript>
@@ -544,7 +544,7 @@ if (num > 0) {
 <JavaScript class="com.fr.js.Commit2DBJavaScript">
 <Parameters/>
 <Attributes dsName="JDBC3" name="提交1"/>
-<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<DMLConfig class="com.fr.write.config.UpdateConfig">
 <Table schema="" name="plan"/>
 <ColumnConfig name="id" isKey="true" skipUnmodified="false">
 <O t="XMLable" class="com.fr.stable.js.WidgetName">
@@ -563,7 +563,7 @@ if (num > 0) {
 </Condition>
 </DMLConfig>
 <Attributes dsName="JDBC3" name="提交2"/>
-<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<DMLConfig class="com.fr.write.config.UpdateConfig">
 <Table schema="" name="plan"/>
 <ColumnConfig name="id" isKey="true" skipUnmodified="false">
 <O t="XMLable" class="com.fr.stable.js.WidgetName">
@@ -629,7 +629,7 @@ if (fr_submitinfo.success) {
 		"target": "_self"
 	}), 500);
 } else {
-	FR.Msg("提交出错", "请联系管理员\n" + fr_submitinfo.failinfo);
+	FR.Msg.alert("提交出错", "请联系管理员\n" + fr_submitinfo.failinfo);
 }]]></Content>
 </JavaScript>
 <JavaScriptResourceInfo/>
