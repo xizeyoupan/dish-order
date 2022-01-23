@@ -9,7 +9,7 @@
 <![CDATA[JDBC3]]></DatabaseName>
 </Connection>
 <Query>
-<![CDATA[select * from plan where available=1 and remain_number>0]]></Query>
+<![CDATA[select * from plan where available=1]]></Query>
 <PageQuery>
 <![CDATA[]]></PageQuery>
 </TableData>
@@ -128,12 +128,12 @@ if (v) {
 <widgetValue>
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
-<![CDATA[=SQL("JDBC3","select id,pick_plan_id from dish_order.order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,2,1)]]></Attributes>
+<![CDATA[=SQL("JDBC3","select id,pick_plan_id from order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,2,1)]]></Attributes>
 </O>
 </widgetValue>
 <MobileScanCodeAttr scanCode="true" textInputMode="0"/>
 </InnerWidget>
-<BoundsAttr x="873" y="17" width="80" height="21"/>
+<BoundsAttr x="873" y="19" width="80" height="21"/>
 </Widget>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.TextEditor">
@@ -149,7 +149,7 @@ if (v) {
 <widgetValue>
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
-<![CDATA[=SQL("JDBC3","select id,pick_plan_id from dish_order.order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,1,1)]]></Attributes>
+<![CDATA[=SQL("JDBC3","select id,pick_plan_id from order_list where srudent_id='"+$fine_username+"' and `from`='"+WEEKDATE(YEAR(),MONTH(),WEEK("F1")+1,2)+"'" ,1,1)]]></Attributes>
 </O>
 </widgetValue>
 <MobileScanCodeAttr scanCode="true" textInputMode="0"/>
@@ -273,6 +273,52 @@ if (v) {
 </appFormBodyPadding>
 </appFormBodyPadding>
 <LCAttr vgap="0" hgap="0" compInterval="5"/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="label6"/>
+<WidgetID widgetID="b2915526-3ffa-4583-8d43-9476c2cd9cbc"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<widgetValue>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=SQL("JDBC3","select remain_number from plan where id="+$selectedPlan,1,1)]]></Attributes>
+</O>
+</widgetValue>
+<LabelAttr verticalcenter="true" textalign="2" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<border style="0">
+<color>
+<FineColor color="-723724" hor="-1" ver="-1"/>
+</color>
+</border>
+</InnerWidget>
+<BoundsAttr x="509" y="160" width="526" height="40"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="label5"/>
+<WidgetID widgetID="167c1469-3a51-4353-9c2f-5607f8a63694"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<widgetValue>
+<O>
+<![CDATA[剩余数量：]]></O>
+</widgetValue>
+<LabelAttr verticalcenter="true" textalign="0" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<border style="0">
+<color>
+<FineColor color="-723724" hor="-1" ver="-1"/>
+</color>
+</border>
+</InnerWidget>
+<BoundsAttr x="302" y="160" width="207" height="40"/>
+</Widget>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.container.WAbsoluteLayout">
 <WidgetName name="absolute4"/>
@@ -531,10 +577,16 @@ if (window.selected_id === window.previous_selected_id) {
 }
 
 var num = FR.remoteEvaluate('=sql("JDBC3","SELECT remain_number from plan where id=\'' + window.selected_id + '\'",1,1)');
+
 if (num > 0) {
 	return true;
 } else {
-	FR.Msg.alert("手慢了", "套餐已经被抢完了", () => location.reload(true));
+	if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+		alert("手慢了,套餐已经被抢完了");
+		location.reload(true);
+	} else {
+		FR.Msg.alert("手慢了", "套餐已经被抢完了", () => location.reload(true));
+	}
 	return false;
 }]]></Content>
 </JavaScript>
@@ -621,14 +673,13 @@ if (num > 0) {
 <JavaScript class="com.fr.js.JavaScriptImpl">
 <Parameters/>
 <Content>
-<![CDATA[console.log("12456");
-if (fr_submitinfo.success) {
+<![CDATA[if (fr_submitinfo.success) {
 	setTimeout(() => FR.doHyperlinkByGet({
 		"url": "/webroot/decision/view/form?viewlet=PlanSubmitSuccess.frm",
 		"target": "_self"
 	}), 500);
 } else {
-	FR.Msg.alert("提交出错", "请联系管理员\n" + fr_submitinfo.failinfo);
+	setTimeout(() => FR.Msg.alert("提交出错", "请联系管理员\n" + fr_submitinfo.failinfo), 3000);
 }]]></Content>
 </JavaScript>
 <JavaScriptResourceInfo/>
@@ -849,7 +900,7 @@ if (fr_submitinfo.success) {
 </color>
 </border>
 </InnerWidget>
-<BoundsAttr x="42" y="160" width="993" height="40"/>
+<BoundsAttr x="42" y="160" width="260" height="40"/>
 </Widget>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.container.WScaleLayout">
@@ -1080,6 +1131,8 @@ if (fr_submitinfo.success) {
 <Widget widgetName="textEditorID"/>
 <Widget widgetName="dateEditorFrom"/>
 <Widget widgetName="dateEditorTo"/>
+<Widget widgetName="label5"/>
+<Widget widgetName="label6"/>
 </MobileWidgetList>
 <FrozenWidgets/>
 <MobileBookMarkStyle class="com.fr.form.ui.mobile.impl.DefaultMobileBookMarkStyle"/>

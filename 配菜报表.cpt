@@ -316,8 +316,6 @@ ORDER BY num DESC;]]></Query>
 <richText class="com.fr.plugin.chart.base.AttrTooltipRichText">
 <AttrTooltipRichText>
 <Attr content="&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img data-id=&quot;${VALUE}&quot;/&gt;&lt;br&gt;&lt;/p&gt;" isAuto="true" initParamsContent="${VALUE}"/>
-<params>
-<![CDATA[{}]]></params>
 </AttrTooltipRichText>
 </richText>
 <richTextValue class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
@@ -451,8 +449,6 @@ ORDER BY num DESC;]]></Query>
 <richText class="com.fr.plugin.chart.base.AttrTooltipRichText">
 <AttrTooltipRichText>
 <Attr content="&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img data-id=&quot;${CATEGORY}&quot;/&gt;&lt;br&gt;&lt;/p&gt;" isAuto="true" initParamsContent="${CATEGORY}"/>
-<params>
-<![CDATA[{}]]></params>
 </AttrTooltipRichText>
 </richText>
 <richTextSummaryValue class="com.fr.plugin.chart.base.format.AttrTooltipSummaryValueFormat">
@@ -500,8 +496,6 @@ ORDER BY num DESC;]]></Query>
 <richText class="com.fr.plugin.chart.base.AttrTooltipRichText">
 <AttrTooltipRichText>
 <Attr content="&lt;p style=&quot;text-align: left;&quot;&gt;&lt;img data-id=&quot;${SERIES}&quot;/&gt;&lt;br&gt;&lt;img data-id=&quot;${VALUE}&quot;/&gt;&lt;br&gt;&lt;/p&gt;" isAuto="true" initParamsContent="${SERIES}${VALUE}"/>
-<params>
-<![CDATA[{}]]></params>
 </AttrTooltipRichText>
 </richText>
 <richTextValue class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
@@ -786,8 +780,6 @@ ORDER BY num DESC;]]></Query>
 <richText class="com.fr.plugin.chart.base.AttrTooltipRichText">
 <AttrTooltipRichText>
 <Attr content="" isAuto="true" initParamsContent=""/>
-<params>
-<![CDATA[{}]]></params>
 </AttrTooltipRichText>
 </richText>
 <richTextValue class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
@@ -987,7 +979,7 @@ ORDER BY num DESC;]]></Query>
 <CellPageAttr/>
 <Expand dir="0"/>
 </C>
-<C c="3" r="4" s="3">
+<C c="3" r="4" s="5">
 <O t="XMLable" class="com.fr.base.Formula">
 <Attributes>
 <![CDATA[=C5/C1]]></Attributes>
@@ -995,15 +987,15 @@ ORDER BY num DESC;]]></Query>
 <PrivilegeControl/>
 <Expand/>
 </C>
-<C c="0" r="5" s="5">
+<C c="0" r="5" s="6">
 <PrivilegeControl/>
 <Expand/>
 </C>
-<C c="1" r="5" s="5">
+<C c="1" r="5" s="6">
 <PrivilegeControl/>
 <Expand/>
 </C>
-<C c="2" r="5" s="5">
+<C c="2" r="5" s="6">
 <PrivilegeControl/>
 <Expand/>
 </C>
@@ -1013,7 +1005,7 @@ ORDER BY num DESC;]]></Query>
 <PrivilegeControl/>
 <Expand/>
 </C>
-<C c="2" r="6" s="5">
+<C c="2" r="6" s="6">
 <PrivilegeControl/>
 <Expand/>
 </C>
@@ -1029,7 +1021,7 @@ ORDER BY num DESC;]]></Query>
 <PrivilegeControl/>
 <Expand/>
 </C>
-<C c="2" r="7" s="5">
+<C c="2" r="7" s="6">
 <PrivilegeControl/>
 <Expand/>
 </C>
@@ -1053,7 +1045,7 @@ ORDER BY num DESC;]]></Query>
 <PrivilegeControl/>
 <Expand dir="0"/>
 </C>
-<C c="2" r="8" s="5">
+<C c="2" r="8" s="6">
 <PrivilegeControl/>
 <Expand/>
 </C>
@@ -1361,6 +1353,34 @@ _g().parameterCommit();]]></Content>
 <FRFont name="simhei" style="0" size="72"/>
 <Background name="NullBackground"/>
 <Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#0.00%]]></Format>
+<FRFont name="simhei" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1">
+<color>
+<FineColor color="-9121349" hor="1" ver="0"/>
+</color>
+</Top>
+<Bottom style="1">
+<color>
+<FineColor color="-9121349" hor="1" ver="0"/>
+</color>
+</Bottom>
+<Left style="1">
+<color>
+<FineColor color="-9121349" hor="1" ver="0"/>
+</color>
+</Left>
+<Right style="1">
+<color>
+<FineColor color="-9121349" hor="1" ver="0"/>
+</color>
+</Right>
+</Border>
 </Style>
 <Style horizontal_alignment="0" imageLayout="1">
 <FRFont name="simhei" style="0" size="72"/>
